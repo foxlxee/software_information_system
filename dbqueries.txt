@@ -1,0 +1,46 @@
+CREATE TABLE Developers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Software (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    developer_id INT,
+    category_id INT,
+    name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (developer_id) REFERENCES Developers(id),
+    FOREIGN KEY (category_id) REFERENCES Categories(id)
+);
+
+CREATE TABLE Employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Versions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Installations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    software_id INT,
+    version_id INT,
+    installation_date DATE,
+    employee_id INT,
+    FOREIGN KEY (software_id) REFERENCES Software(id),
+    FOREIGN KEY (version_id) REFERENCES Versions(id),
+    FOREIGN KEY (employee_id) REFERENCES Employees(id)
+);
+
+CREATE TABLE Installation_Rooms (
+    installation_id INT,
+    room_number INT,
+    PRIMARY KEY (installation_id, room_number),
+    FOREIGN KEY (installation_id) REFERENCES Installations(id)
+);

@@ -1,0 +1,45 @@
+﻿<Window x:Class="DataBaseInformationSystem.FiltersSettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBaseInformationSystem"
+        mc:Ignorable="d"
+        x:ClassModifier="internal"
+        Title="Фильтрация"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        SizeToContent="Height"
+        Width="850">
+    <StackPanel>
+        <UniformGrid Rows="1">
+            <StackPanel>
+                <Label Content="Сотрудники"/>
+                <ListBox x:Name="employeesListView"
+                     SelectionMode="Multiple"
+                     Height="150"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="ПО" />
+                <ListBox x:Name="softwareListView"
+                     SelectionMode="Multiple"
+                     Height="150"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Кабинеты"/>
+                <ListBox x:Name="roomsListView"
+                     SelectionMode="Multiple"
+                     Height="150"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Даты установок"/>
+                <Label Content="С"/>
+                <DatePicker x:Name="fromDatePicker"/>
+                <Label Content="По"/>
+                <DatePicker x:Name="toDatePicker"/>
+            </StackPanel>
+        </UniformGrid>
+        <Button x:Name="applyButton" Content="Применить"/>
+    </StackPanel>
+</Window>
